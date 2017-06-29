@@ -1,6 +1,7 @@
 import sqlite3
 from bs4 import BeautifulSoup
 import re
+import sys,io
 
 class Database:
 
@@ -44,6 +45,7 @@ class Database:
             i=row[3]
 
             with open("Ikea.html") as fp:
+                sys.stdout = io.TextIOWrapper(sys.stdout.buffer,'cp437','backslashreplace')
                 soup = BeautifulSoup(fp,"html.parser")
 
             SAD=soup.find_all(string=re.compile(str(i)))
@@ -54,10 +56,3 @@ class Database:
 
     def __del__(self):
         self.conn.close()
-
-
-##insert('Wall','15x14x40','4560987','SEKTION')
-#delete(4)
-#update(5,"Wall","15x14x40","7045675","SEKTION")
-#print(view())
-##print(search(Cabinet_type="Wall"))
