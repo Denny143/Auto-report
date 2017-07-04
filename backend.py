@@ -45,7 +45,7 @@ class Database:
             i=row[3]
 
             with open("Ikea.html") as fp:
-                sys.stdout = io.TextIOWrapper(sys.stdout.buffer,'cp437','backslashreplace')
+                #sys.stdout = io.TextIOWrapper(sys.stdout.buffer,'cp437','backslashreplace')
                 soup = BeautifulSoup(fp,"html.parser")
 
             SAD=soup.find_all(string=re.compile(str(i)))
