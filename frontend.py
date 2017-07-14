@@ -24,8 +24,10 @@ def view_command():
 
 def report_command():
     list1.delete(0,END)
-    for row in database.report():
-        list1.insert(END,row)
+    row=database.report()
+    for i in row:
+        if i[2]>0:
+            list1.insert(END,i)
 
 def search_command():
     list1.delete(0,END)
