@@ -44,7 +44,7 @@ class Database:
         while row is not None:
             i=row[3]
 
-            with open("Ikea.html") as fp:
+            with open("Ikea.html", encoding="utf8") as fp:
                 #sys.stdout = io.TextIOWrapper(sys.stdout.buffer,'cp437','backslashreplace')
                 soup = BeautifulSoup(fp,"html.parser")
 
